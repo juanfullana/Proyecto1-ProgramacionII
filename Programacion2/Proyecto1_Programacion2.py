@@ -22,6 +22,8 @@ LV-344
 LV-SX33UIO4
 LV-SX334UIO
 
-SOLUCION = (L(V|Q)-[A-Z]{3})|(LV-(X|S|SX)[\d]{3}$) 
+SOLUCION = (L(V|Q)-[A-Z]{3})|(LV-(X|S|SX)[\d]{3}$)
+
+Probando si anda
 
 """
