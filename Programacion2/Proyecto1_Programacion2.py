@@ -106,3 +106,30 @@ from functools import reduce
 
 resultado_final = reduce(lambda a, b: a+b, lista_resultados)
 print("El resultado final es:", resultado_final)
+
+
+'''
+RECUSIVIDAD 
+
+Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
+'''
+
+'''
+Caso Base = comparar el primer elemento de cada lista y si son iguales, comparar el resto de las listas.
+'''
+
+
+def verifiacar_listas(lista1, lista2):
+    if len(lista1) == 1 and len(lista2) == 1:
+        return lista1[0] == lista2[0]
+    else:
+        if len(lista1) != len(lista2):
+            return False
+        else:
+            return (lista1[0] == lista2[0]) and (verifiacar_listas(lista1[1:], lista2[1:]))
+
+
+lista_1 = [2, 3, 4, 6]
+lista_2 = [2, 3, 4, 6]
+
+print(verifiacar_listas(lista_1, lista_2))
