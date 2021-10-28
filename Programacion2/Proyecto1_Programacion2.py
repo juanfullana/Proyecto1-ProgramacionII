@@ -111,10 +111,33 @@ print("El resultado final es:", resultado_final)
 '''
 RECUSIVIDAD 
 
-Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
+Ejercicio 1 - Codificar un numero entero de la siguiente manera:
+- Cada digito par sustituirlo por 1
+- Cada digito impar sustituirlo por 2
+Puede pasar el numero a otras representaciones para resolver el ejercicio
 '''
 
+
+num = 436225
+num = str(num)
+
+
+def codificar(Z):
+    if len(Z) == 0:
+        return ""
+    else:
+        if int(Z[0]) % 2 == 0:
+            return "1" + codificar(Z[1:])
+        else:
+            return "2" + codificar(Z[1:])
+
+
+print(codificar(num))
+
 '''
+Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
+
+
 Caso Base = comparar el primer elemento de cada lista y si son iguales, comparar el resto de las listas.
 '''
 
@@ -133,3 +156,22 @@ lista_1 = [2, 3, 4, 6]
 lista_2 = [2, 3, 4, 6]
 
 print(verifiacar_listas(lista_1, lista_2))
+
+
+'''
+Ejercicio 4 - Realizar la division entera entre dos numeros enteros positivos A y B, (B != 0).
+
+'''
+
+A = 145
+B = 5
+
+
+def division_entera(A, B):
+    if A < B:
+        return 0
+    else:
+        return 1 + division_entera(A-B, B)
+
+
+print(division_entera(A, B))
