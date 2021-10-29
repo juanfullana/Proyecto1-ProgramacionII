@@ -44,8 +44,17 @@ Numeros Invalidos:
 0
 
 SOLUCION = ^[1][0-8]?[0-9]?[0-9]?$|^[1-9][0-9]?[0-9]?$|1900 [Si encontras una mejor, cambiala]
-
 """
+
+
+
+
+
+
+
+
+
+
 
 '''
 RECUSIVIDAD 
@@ -71,6 +80,12 @@ def codificar(Z):
 
 print(codificar(num))
 
+
+
+
+
+
+
 '''
 Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
 
@@ -92,6 +107,11 @@ lista_2 = [2, 3, 4, 6]
 
 print(verifiacar_listas(lista_1, lista_2))
 
+
+
+
+
+
 '''
 Ejercicio 4 - Realizar la division entera entre dos numeros enteros positivos A y B, (B != 0).
 
@@ -109,8 +129,15 @@ def division_entera(A, B):
 
 print(division_entera(A, B))
 
-'''
 
+
+
+
+
+
+
+
+'''
 # Colecciones:
 # Explicar en pocas palabras y utilizando diagarmas las operaciones de map, filter y reducce.
 # Proponga ejemplos de cada uno (conceptuales no necesariamente en código)
@@ -138,6 +165,10 @@ hasta retornar un unico resultado.
 Ver diagrama 3.
 '''
 
+
+
+
+
 '''
 Ejercicio 2 - Calcular el numero irracional "pi" sin usar estructuras repetitivas.
 '''
@@ -155,13 +186,21 @@ lista_terminos = range(0, terminos)
 
 lista_resultados = list(map(pi_funcion, lista_terminos))
 
-'''
-Ejercicio de intercambio de datos
-'''
 from functools import reduce
 
 resultado_final = reduce(lambda a, b: a+b, lista_resultados)
 print("El resultado final es:", resultado_final)
+
+
+
+
+
+
+
+
+'''
+Ejercicio de intercambio de datos
+'''
 
 import xml.etree.ElementTree as ET
 
