@@ -49,65 +49,6 @@ SOLUCION = ^[1][0-8]?[0-9]?[0-9]?$|^[1-9][0-9]?[0-9]?$|1900 [Si encontras una me
 
 """
 
-
-'''
-
-# Colecciones:
-# Explicar en pocas palabras y utilizando diagarmas las operaciones de map, filter y reducce.
-# Proponga ejemplos de cada uno (conceptuales no necesariamente en código)
-
-----------
-
-La funcion map() aplica una funcion a un objeto iterable (lista, tupla, etc).
-Retorna un un objeto iterable que puede ser convertido con funciones como list()
-
-***** --> map(sumar, asteriscos) --> +++++
-
-----------
-
-La funcion filter() aplica una funcion logica (true o false) a una secuencia de elementos.
-Retorna un objeto iterable ya filtrado dependiendo si cumple la condicion logica.
-
-*, +, *, *, -, /, *, + --> filter(asteriscos, simbolos) --> *, *, *, *
-
-----------
-
-La funcion reduce() aplica una funcion a los primeros dos elementos de una secuencia
-y ese primer resultado lo aplica al primero de los demas elementos y asi sucesivamente
-hasta retornar un unico resultado.
-
-5, 4, 3, 2, 1 --> reduce(cual_es_mayor, numeros)
-5>4?, 3, 2, 1 
-5>3?, 2, 1
-5>2?, 1
-5>1?
-5!
-'''
-
-'''
-Ejercicio 2 - Calcular el numero irracional "pi" sin usar estructuras repetitivas.
-'''
-
-
-def pi_funcion(i):  # funcion de la ecuacion
-    numerador = 4 * ((-1)**i)
-    denominador = (2*i) + 1
-    return numerador / denominador
-
-
-terminos = int(input("Ingrese la cantidad de terminos que desea caluclar: "))
-
-lista_terminos = range(0, terminos)
-
-lista_resultados = list(map(pi_funcion, lista_terminos))
-
-
-from functools import reduce
-
-resultado_final = reduce(lambda a, b: a+b, lista_resultados)
-print("El resultado final es:", resultado_final)
-
-
 '''
 RECUSIVIDAD 
 
@@ -116,8 +57,6 @@ Ejercicio 1 - Codificar un numero entero de la siguiente manera:
 - Cada digito impar sustituirlo por 2
 Puede pasar el numero a otras representaciones para resolver el ejercicio
 '''
-
-
 num = 436225
 num = str(num)
 
@@ -175,3 +114,56 @@ def division_entera(A, B):
 
 
 print(division_entera(A, B))
+
+'''
+
+# Colecciones:
+# Explicar en pocas palabras y utilizando diagarmas las operaciones de map, filter y reducce.
+# Proponga ejemplos de cada uno (conceptuales no necesariamente en código)
+
+----------
+
+La funcion map() aplica una funcion a un objeto iterable (lista, tupla, etc).
+Retorna un un objeto iterable que puede ser convertido con funciones como list()
+
+Ver diagrama 1.
+
+----------
+
+La funcion filter() aplica una funcion logica (true o false) a una secuencia de elementos.
+Retorna un objeto iterable ya filtrado dependiendo si cumple la condicion logica.
+
+Ver diagrama 2.
+
+----------
+
+La funcion reduce() aplica una funcion a los primeros dos elementos de una secuencia
+y ese primer resultado lo aplica al primero de los demas elementos y asi sucesivamente
+hasta retornar un unico resultado.
+
+Ver diagrama 3.
+'''
+
+'''
+Ejercicio 2 - Calcular el numero irracional "pi" sin usar estructuras repetitivas.
+'''
+
+
+def pi_funcion(i):  # funcion de la ecuacion
+    numerador = 4 * ((-1)**i)
+    denominador = (2*i) + 1
+    return numerador / denominador
+
+
+terminos = int(input("Ingrese la cantidad de terminos que desea caluclar: "))
+
+lista_terminos = range(0, terminos)
+
+lista_resultados = list(map(pi_funcion, lista_terminos))
+
+
+from functools import reduce
+
+resultado_final = reduce(lambda a, b: a+b, lista_resultados)
+print("El resultado final es:", resultado_final)
+
