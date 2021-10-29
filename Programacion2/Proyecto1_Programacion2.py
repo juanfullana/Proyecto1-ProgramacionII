@@ -92,141 +92,167 @@ elif opcion_ejercicio == "2":
                 return "2" + codificar(Z[1:])
 
 
-    print(codificar(num))
+    print("El numero codificado es: ",(codificar(num)))
+    
+    time.sleep(4)
+    enunciado_recursividad_3='''
+    Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
 
-'''
-Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
-
-Caso Base = comparar el primer elemento de cada lista y si son iguales, comparar el resto de las listas.
-'''
-
-def verifiacar_listas(lista1, lista2):
-    if len(lista1) == 1 and len(lista2) == 1:
-        return lista1[0] == lista2[0]
-    else:
-        if len(lista1) != len(lista2):
-            return False
+    Caso Base = comparar el primer elemento de cada lista y si son iguales, comparar el resto de las listas.
+    '''
+    print(enunciado_recursividad_3)
+    time.sleep(4)
+    def verifiacar_listas(lista1, lista2):
+        if len(lista1) == 1 and len(lista2) == 1:
+            return lista1[0] == lista2[0]
         else:
-            return (lista1[0] == lista2[0]) and (verifiacar_listas(lista1[1:], lista2[1:]))
+            if len(lista1) != len(lista2):
+                return False
+            else:
+                return (lista1[0] == lista2[0]) and (verifiacar_listas(lista1[1:], lista2[1:]))
 
 
-lista_1 = [2, 3, 4, 6]
-lista_2 = [2, 3, 4, 6]
-
-print(verifiacar_listas(lista_1, lista_2))
-
-'''
-Ejercicio 4 - Realizar la division entera entre dos numeros enteros positivos A y B, (B != 0).
-
-'''
-A = 145
-B = 5
-
-
-def division_entera(A, B):
-    if A < B:
-        return 0
-    else:
-        return 1 + division_entera(A-B, B)
-
-
-print(division_entera(A, B))
-
-'''
-
-# Colecciones:
-# Explicar en pocas palabras y utilizando diagarmas las operaciones de map, filter y reducce.
-# Proponga ejemplos de cada uno (conceptuales no necesariamente en código)
-
-----------
-
-La funcion map() aplica una funcion a un objeto iterable (lista, tupla, etc).
-Retorna un un objeto iterable que puede ser convertido con funciones como list()
-
-Ver diagrama 1.
-
-----------
-
-La funcion filter() aplica una funcion logica (true o false) a una secuencia de elementos.
-Retorna un objeto iterable ya filtrado dependiendo si cumple la condicion logica.
-
-Ver diagrama 2.
-
-----------
-
-La funcion reduce() aplica una funcion a los primeros dos elementos de una secuencia
-y ese primer resultado lo aplica al primero de los demas elementos y asi sucesivamente
-hasta retornar un unico resultado.
-
-Ver diagrama 3.
-'''
-
-'''
-Ejercicio 2 - Calcular el numero irracional "pi" sin usar estructuras repetitivas.
-'''
-
-
-def pi_funcion(i):  # funcion de la ecuacion
-    numerador = 4 * ((-1)**i)
-    denominador = (2*i) + 1
-    return numerador / denominador
-
-
-terminos = int(input("Ingrese la cantidad de terminos que desea caluclar: "))
-
-lista_terminos = range(0, terminos)
-
-lista_resultados = list(map(pi_funcion, lista_terminos))
-
-'''
-Ejercicio de intercambio de datos
-
-Se necesita diseñar un formato para intercambiar datos de estaciones meteorológicas. El sistema tiene N
-estaciones cada una con su localización (latitud y longitud) y un nombre alfanumérico. Las estaciones pueden
-tener diferentes combinaciones de sensores entre: humedad, dirección del viento, velocidad del viento,
-temperatura (que puede estar en grados celsius o fahrenheit) y presión atmosférica. No todas las estaciones
-tienen todos los sensores, pero al menos tienen uno. Los sensores deben almacenar por separado la
-magnitud leída de su unidad de medición.
-Además cada estación almacena el voltaje en milivolts de su batería una vez por segundo y el formato de
-archivo debe mantener las últimas 20 mediciones.
-
-1. A partir del nombre de la estación, computar la cantidad de sensores disponible y mostrar por pantalla
-los diferentes sensores, cada uno deberá mostrar el tipo y la variable medida:
-
-2.Calcular cuál es la estación con menos batería, es decir, la estación con menor valor promedio de
-voltaje.
-
-'''
-from functools import reduce
-
-resultado_final = reduce(lambda a, b: a+b, lista_resultados)
-print("El resultado final es:", resultado_final)
-
-import xml.etree.ElementTree as ET
-
-with open('Sensores.xml', 'r',) as f:
-    data = f.read()
-
-raiz = ET.fromstring(data)
-
-estaciones = (raiz.find('estaciones'))
-for estacion in estaciones:
-    print("Estacion: "+estacion.find('name').text)
-    print("Latitud: "+estacion.find("latitud/magnitud").text + estacion.find("latitud/unidad").text)
-    print("Longitud: "+estacion.find("longitud/magnitud").text + estacion.find("longitud/unidad").text)
+    lista_1 = [ ] 
+    n = int(input("Ingrese el numero de elementos de la lista 1 : ")) 
+  
+    for i in range(0, n): 
+        ele = [int(input("Ingrese un numero entero: "))] 
+        lista_1.append(ele) 
     
-    sensores = estacion.find('sensores')
-    print("Cantidad de sensores: ", len(sensores))
-    for sensor in sensores:
-        print(sensor.get("tipo").capitalize(),": ", sensor.find("magnitud").text, sensor.find("unidad").text)
+    lista_2 = []
+    n = int(input("Ingrese el numero de elementos de la lista 2: ")) 
+  
+    for i in range(0, n): 
+        ele = [int(input("Ingrese un numero entero: "))] 
+        lista_2.append(ele) 
+
+    print(verifiacar_listas(lista_1, lista_2))
+
+    enunciado_recursividad_4='''
+    Ejercicio 4 - Realizar la division entera entre dos numeros enteros positivos A y B, (B != 0).
+
+    '''
+    print (enunciado_recursividad_4)
+    time.sleep(3)
+    A = int(input("Ingrese un numero entero positivo: "))
+    B = int(input("Ingrese un numero entero positivo: "))
+
+
+    def division_entera(A, B):
+        if A < B:
+            return 0
+        else:
+            return 1 + division_entera(A-B, B)
+
+
+    print("El resultado de la division es: ",division_entera(A, B))
+
+elif opcion_ejercicio == "3":
+    enunciado_colecciones_1='''
+
+    # Colecciones:
+    # Explicar en pocas palabras y utilizando diagarmas las operaciones de map, filter y reducce.
+    # Proponga ejemplos de cada uno (conceptuales no necesariamente en código)
+
+    ----------
+
+    La funcion map() aplica una funcion a un objeto iterable (lista, tupla, etc).
+    Retorna un un objeto iterable que puede ser convertido con funciones como list()
+
+    Ver diagrama 1.
+
+    ----------
+
+    La funcion filter() aplica una funcion logica (true o false) a una secuencia de elementos.
+    Retorna un objeto iterable ya filtrado dependiendo si cumple la condicion logica.
+
+    Ver diagrama 2.
+
+    ----------
+
+    La funcion reduce() aplica una funcion a los primeros dos elementos de una secuencia
+    y ese primer resultado lo aplica al primero de los demas elementos y asi sucesivamente
+    hasta retornar un unico resultado.
+
+    Ver diagrama 3.
+    '''
+
+    enunciado_colecciones_2='''
+    Ejercicio 2 - Calcular el numero irracional "pi" sin usar estructuras repetitivas.
+    '''
+    print (enunciado_colecciones_1)
+    print("La resolucion se encuentra en el pdf adjunto en el respositorio correspondiente al proyecto")
+    time.sleep(10)
+
+    print(enunciado_colecciones_2)
+    time.sleep(2)
+
+    def pi_funcion(i):  # funcion de la ecuacion
+        numerador = 4 * ((-1)**i)
+        denominador = (2*i) + 1
+        return numerador / denominador
+
+    terminos = int(input("Ingrese la cantidad de terminos que desea calcular: "))
+
+    lista_terminos = range(0, terminos)
+
+    lista_resultados = list(map(pi_funcion, lista_terminos))
+
+    from functools import reduce
+
+    resultado_final = reduce(lambda a, b: a+b, lista_resultados)
+    print("El resultado final es: ", resultado_final)
+    time.sleep(4)
+
+elif opcion_ejercicio == "4":
+    enunciado_intercambio_datos='''
     
-    voltajes = estacion.find('voltajes')
-    voltajes_sum = 0
-    for voltaje in voltajes:
-        voltajes_sum += float(voltaje.find("magnitud").text)
-    promedio_voltajes = voltajes_sum/(len(voltajes))
+    Ejercicio de intercambio de datos
+
+    Se necesita diseñar un formato para intercambiar datos de estaciones meteorológicas. El sistema tiene N
+    estaciones cada una con su localización (latitud y longitud) y un nombre alfanumérico. Las estaciones pueden
+    tener diferentes combinaciones de sensores entre: humedad, dirección del viento, velocidad del viento,
+    temperatura (que puede estar en grados celsius o fahrenheit) y presión atmosférica. No todas las estaciones
+    tienen todos los sensores, pero al menos tienen uno. Los sensores deben almacenar por separado la
+    magnitud leída de su unidad de medición.
+    Además cada estación almacena el voltaje en milivolts de su batería una vez por segundo y el formato de
+    archivo debe mantener las últimas 20 mediciones.
+
+    1. A partir del nombre de la estación, computar la cantidad de sensores disponible y mostrar por pantalla
+    los diferentes sensores, cada uno deberá mostrar el tipo y la variable medida:
+
+    2.Calcular cuál es la estación con menos batería, es decir, la estación con menor valor promedio de
+    voltaje.
+
+    '''
+    print(enunciado_intercambio_datos)
+    time.sleep(10)
     
-   
-    print("Promedio de voltaje: ",promedio_voltajes,voltaje.find("unidad").text)
-    print("")
-    print("")
+    import xml.etree.ElementTree as ET
+
+    with open('Sensores.xml', 'r',) as f:
+        data = f.read()
+
+    raiz = ET.fromstring(data)
+
+    estaciones = (raiz.find('estaciones'))
+    for estacion in estaciones:
+        print("Estacion: "+estacion.find('name').text)
+        print("Latitud: "+estacion.find("latitud/magnitud").text + estacion.find("latitud/unidad").text)
+        print("Longitud: "+estacion.find("longitud/magnitud").text + estacion.find("longitud/unidad").text)
+        
+        sensores = estacion.find('sensores')
+        print("Cantidad de sensores: ", len(sensores))
+        for sensor in sensores:
+            print(sensor.get("tipo").capitalize(),": ", sensor.find("magnitud").text, sensor.find("unidad").text)
+        
+        voltajes = estacion.find('voltajes')
+        voltajes_sum = 0
+        for voltaje in voltajes:
+            voltajes_sum += float(voltaje.find("magnitud").text)
+        promedio_voltajes = voltajes_sum/(len(voltajes))
+        
+    
+        print("Promedio de voltaje: ",promedio_voltajes,voltaje.find("unidad").text)
+        print("")
+        print("")
