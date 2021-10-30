@@ -98,9 +98,33 @@ while opcion_ejercicio != "0":
                     return "2" + codificar(Z[1:])
 
 
-        print("El numero codificado es: ",(codificar(num)))
+        print("El numero codificado es: ", (codificar(num)))
         
         time.sleep(4)
+
+        enunciado_recursividad_2 = '''
+        Convertir una lista de listas en una sola lista que tenga todos los elementos de las listas originales.
+        Ejemplo: Si L = [ [1, 2, 3], [4, 5, 6], [7], [8] ] la lista resultante deberá ser L2 = [1,2,3,4,5,6,7,8]
+        '''
+        print(enunciado_recursividad_2)
+
+        time.sleep(4)
+
+        L = [[1, 2, 3], [4, 5, 6], [7], [8]]
+
+
+        def union_de_listas(lista_madre):
+            if len(lista_madre) == 1:
+                return lista_madre[0]
+            else:
+                lista_resultado = lista_madre[0] + union_de_listas(lista_madre[1:])
+                return lista_resultado
+
+
+        print(union_de_listas(L))
+
+        time.sleep(4)
+
         enunciado_recursividad_3='''
         Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
 
@@ -108,6 +132,8 @@ while opcion_ejercicio != "0":
         '''
         print(enunciado_recursividad_3)
         time.sleep(4)
+
+
         def verifiacar_listas(lista1, lista2):
             if len(lista1) == 1 and len(lista2) == 1:
                 return lista1[0] == lista2[0]
