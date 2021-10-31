@@ -127,8 +127,7 @@ while opcion_ejercicio != "0":
 
         enunciado_recursividad_3='''
         Ejercicio 3 - Decidir si dos listas de numeros enteros son iguales
-
-        Caso Base = comparar el primer elemento de cada lista y si son iguales, comparar el resto de las listas.
+        
         '''
         print(enunciado_recursividad_3)
         time.sleep(4)
@@ -145,7 +144,7 @@ while opcion_ejercicio != "0":
                     return veredicto
 
 
-        lista_1 = [ ] 
+        lista_1 = []
         n = int(input("Ingrese el numero de elementos de la lista 1 : ")) 
     
         for i in range(0, n): 
@@ -224,18 +223,18 @@ while opcion_ejercicio != "0":
         print(enunciado_colecciones_2)
         time.sleep(2)
 
+
         def pi_funcion(i):  # funcion de la ecuacion
             numerador = 4 * ((-1)**i)
             denominador = (2*i) + 1
             return numerador / denominador
+
 
         terminos = int(input("Ingrese la cantidad de terminos que desea calcular: "))
 
         lista_terminos = range(0, terminos)
 
         lista_resultados = list(map(pi_funcion, lista_terminos))
-
-        
 
         resultado_final = reduce(lambda a, b: a+b, lista_resultados)
         print("El resultado final es: ", resultado_final)
@@ -264,7 +263,7 @@ while opcion_ejercicio != "0":
         print(enunciado_intercambio_datos_1)
         time.sleep(10)
 
-        with open('Sensores.xml', 'r',) as f:
+        with open('Sensores.xml', 'r',encoding= 'utf-8') as f:
             data = f.read()
 
         raiz = ET.fromstring(data)
